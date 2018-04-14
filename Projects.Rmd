@@ -11,33 +11,4 @@ entries will follow this format:
 --->
 
 
-<article>
-<h3><a href="Image_Detection.html">Image Detection</a></h3>
-<div class="summary">
-<span><i class="fa fa-calendar"></i> _2017-11-02_</span>
-<p> Interested to learn more about Image Detection using classification methods? Read on!</p>
-<a class="btn btn-outline-primary btn-sm" href="Image_Detection.html">Read</a>
-</div>
-</article>
-
-
-<article>
-<h3><a href="Applications_FSA.html">Applications of FSA</a></h3>
-<div class="summary">
-<span><i class="fa fa-calendar"></i> _2017-07-08_</span>
-<p> Feature Selection is an important step for any statistician who wishes to look at the interpretation of a model. Follow this post if you want to learn more a novel feature selection method that uses a annealing schedule. </p>
-<a class="btn btn-outline-primary btn-sm" href="Applications_FSA.html">Read</a>
-</div>
-</article>
-
-<article>
-<h3><a href="Claim_Analysisn.html">Claim Analysis</a></h3>
-<div class="summary">
-<span><i class="fa fa-calendar"></i> _2017-11-02_</span>
-<p> Accurate modeling of the claim amount distribution is one of the essential steps in calculating policy rates. Motivated by the zero-inflation problem in the claim amount distribution of the motor insurance data set, this project focused on applying the use of s two part model</p>
-<a class="btn btn-outline-primary btn-sm" href="Claim_Analysis.html">Read</a>
-</div>
-</article>
-
-
-
+Hello
