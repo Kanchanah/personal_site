@@ -7,10 +7,6 @@ navbar:
       href: about.html
     - text: "Blog"
       href: blog.html
-    - text: "Projects"
-      href: projects.html
-    - text: "Contact"
-      href: contact.html
       
 
 output:
