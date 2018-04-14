@@ -1,0 +1,65 @@
+---
+title: <span style="color:DarkBlue">Analyzing Claim Amount Data</span>
+output: html_document
+---
+
+##Aim of Analysis
+
+This project focused on finding factors that lead to higher claim amount and the analysis was performed using R.
+
+##Approach to analysis
+
+An important issue that we noticed while analyzing the data was that there were excess zeroes seen in the claim amount. Upon further investigation, we found that policyholders seldom make a claim if the amount to be claimed is small, hence leading to excess zeroes in the claim amount.
+ 
+Since the focus of the analysis was to analyze factors that lead to higher claim amount, we divided the problem to a two-step approach as given below.
+
+**Step 1**: Is the claim amount zero or not?
+
+This will entail performing classification to classify the zero claim amount and non-zero claim amount separately.
+
+**Step 2**: Conditional on the claim amount being positive, linear regression will be used to model the observed non-zero values.
+
+This will be done to perform regression to analyze the non-zero claim amount.
+
+##Methods
+
+**Classification**
+
+Classification can be performed using many methods. For the purpose of this analysis we narrowed it down to three methods.
+
+- Logistics regression
+- Random Forest
+- Linear Discriminant Analysis
+
+**Regression**
+
+Regression was performed using the methods below.
+
+- Ordinary Least Square (OLS)
+- LASSO
+- Group LASSO
+
+##Results
+
+**Classification of zeros**
+
+The Receiver Operating Characteristic (ROC) was utilized as a tool to access the three models for classification. The curve that has a plot closest to the top left hand corner of the plot was considered the best model for the ROC curve. Since all three curves are very close to one another, finding the best model using only visualization was not ideal. Hence, a numerical representation of the ROC curve, namely the Area Under the Curve (AUC) was used. From the Analysis, Logistic Regression had the highest AUC and was hence considered the apt model for classification.
+
+![](/Users/Kanchanah/Documents/Personal_site/Kanchanah_Site/roc.png){width=40%}
+
+
+
+
+**Regression**
+
+Results from regression for the 3 methods indicated that Group Lasso performed the best, with the lowest test error.
+
+![](/Users/Kanchanah/Documents/Personal_site/Kanchanah_Site/test_error.png){width=40%}
+
+Results from group lasso indicated that factors such as **REVOKED** and **MVR PTS** are significant. Hence, these two factors results in positive claim amount. Hence, the interpretations of the cofficients for these two predictors are given below.
+- REVOKED: As the number of revoked licenses increases, the claim amount increases.
+- MVR PTS: As the number of motor vehicle record points increases, the claim amount increases.
+
+##Conclusion
+
+Accurate modeling of the claim amount distribution is one of the essential steps in calculating policy rates. Motivated by the zero-inflation problem in the claim amount distribution of the motor insurance data set, the project focused on applying the use of the two part model. The method accommodates the extra zeros possibly caused by the unreported minor losses. Based on the findings shown in the previous sections, the combination of logistic regression and Group Lasso fits the motor insurance data reasonably well. One possible reason this was chosen as the best model was because we collapsed the dummy variables in the same group and considered correlation between predictors for this model. Based on the results of the two models, MVR violation records and revoked licenses are the most important predictors to predict claim amount. 

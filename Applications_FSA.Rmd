@@ -1,0 +1,91 @@
+---
+title: "Application of Feature Selection with Annealing to Regression Problem"
+output:
+  html_document: default
+---
+
+Feature Selection is a well known preprocessing step for high dimensional data. This project focuses on a novel method, Feature Selection with Annealing, for selecting features. One of the biggest advantage of this method over others are that this method takes a shorter time for convergence. This happens because while the model parameters are updated, the variables are also removed at each iteration while reducing the problem size.
+
+I was interested in applying this method to a regression problem and I decided to proceed on with a simulation example to access the effectiveness of this method. The entire problem was performed using MATLAB. 
+
+###The Feature Selection with Annealing Algorithm
+
+\noindent
+Let L($\beta$,$\tau$) be the loss function and ($x_i,y_i$),$i=1,N$ be the training examples with $x_i\in\mathbb{R}^{M}$ The formulation of the selected problem will be constrained optimization.
+
+\[\beta=argmin_{\substack{|\{ j : \beta_j\neq 0\}|\leq k }}L(\beta,\tau)\]
+\noindent
+where k is the number of relevant features and this is a given parameter and the loss function L($\beta$,$\tau$) is differentiable with respect to $\beta$ and $\tau$.
+
+\noindent
+The algorithm's design will be as given below
+
+
+**Algorithm: Feature Selection with Annealing (FSA)**<br>
+
+**Input**: Training examples ($x_i,y_i$),$i=1,N$<br>
+**Output**: Trained classifier parameter vector $\beta$<br>
+1: Initialize $\beta$=0<br>
+2: **for** e=1 to $N^{iter}$ do<br>
+3: \ \ \ \ \ \ \ \ Update $\beta\leftarrow \beta-\eta\frac{dL(\beta,\tau)}{d\beta}$<br>
+4: \ \ \ \ \ \ \ \ Keep only the $M_e$ variables with the highest |$\beta_j$| and renumber them 1....$M_e$<br>
+5: **end for**<br>
+
+
+\noindent
+The support set of the coefficient vector is gradually tightened till we reach $|\{j,\beta_j \neq0)\}|\lesssim k$. Hence from the algorithm it can be seen that the problem size and complexity drops at each iteration as we are removing the variables at each iteration. This is considered one of the most attractive features of this algorithm\newline
+
+\noindent
+A slow annealing schedule works slow enough for estimation and selection accuracy. However a decaying schedule could reduce the computational cost as mentioned.\newline
+
+\hspace{0.5cm} $M_e=k+(M-k)max\big(0,\frac{N^{iter}-2e}{2e\mu+N^{iter}}\big)$, e=${1,N^{iter}}$\newline
+
+Here note than $\mu$ refers to the annealing parameter and $\eta$ refers to the gradient learning rate. Althought a range of $\eta$ and $\mu$ values can be used, for the case of this analysis, the convergence occurs pretty quickly for $\mu$=10 and $\eta$=2 and these will be the values I used in my analysis.
+
+###The Problem
+
+Feature Selection will be done on the regression problem given below. 
+
+Here $\textbf X_{ij}\sim uniform(-2,2)$ and $\epsilon\sim N(0,1)$. 
+$\beta_j^*$, the true coefficient vector, has been initialized to be 1 for every 10th value. $\tau_j^*$, the true coefficient vector, has been initialized to be 0 for all elements.
+
+$f(\textbf{X})=max(Relu(X_{j}-\tau_j$)$\beta_j$), j=1,...,M
+
+$y_i$=$f(\textbf{X})+\epsilon$\newline
+
+\noindent
+Since this is a regression problem, we will use the squared error loss
+L($\beta,\tau$)=$\sum_{i=1}^{N} (y_i-f(\textbf{X}))^2.$\newline
+
+###Results
+
+The figures below indicate the results for N=3000 and M=100. As seen from the results it is seen that the most of $\beta_j$ and $\tau_j$ are zeroed and only 10 for each parameter have values other than 0. The cost function reduces to a constant. However, the histogram indicates that the number of chosen betas that coincide with the initial betas were mainly clustered around 80-90\%.\newline
+
+![](/Users/Kanchanah/Documents/Project/Part 1/FSA_Loop/Intersect/100_main_3000N_100M/beta.jpg){width=40%}
+![](/Users/Kanchanah/Documents/Project/Part 1/FSA_Loop/Intersect/100_main_3000N_100M/tau.jpg){width=40%} ![](/Users/Kanchanah/Documents/Project/Part 1/FSA_Loop/Intersect/100_main_3000N_100M/cost.jpg){width=40%} 
+![](/Users/Kanchanah/Documents/Project/Part 1/FSA_Loop/Intersect/100_main_3000N_100M/hist.jpg){width=40%}
+
+
+
+
+\noindent
+The number of observations are increased to observe the changes that occurs to the figures. The parameters set for the next part of the analysis are given as: N=5000 and M=100. As seen from the results below, the number of the $\beta_j$ that coincides with the initial $\beta_j^*$ has increased as seen from the histogram.\newline
+
+![](/Users/Kanchanah/Documents/Project/Part 1/FSA_Loop/Intersect/100_main_5000N_100_M/beta_5000.jpg){width=40%} ![](/Users/Kanchanah/Documents/Project/Part 1/FSA_Loop/Intersect/100_main_5000N_100_M/tau_5000.jpg){width=40%} ![](/Users/Kanchanah/Documents/Project/Part 1/FSA_Loop/Intersect/100_main_5000N_100_M/cost_5000.jpg){width=40%} 
+![](/Users/Kanchanah/Documents/Project/Part 1/FSA_Loop/Intersect/100_main_5000N_100_M/hist_5000.jpg){width=40%}
+
+\noindent
+The number of observations are further increased. The parameters set for the next part of the analysis are given as: N=8000 and M=100. The figures below indicate that all the $\beta_j$ coincide with the the initial $\beta_j^*$.
+
+![](/Users/Kanchanah/Documents/Project/Part 1/FSA_Loop/Intersect/100_Main_8000N,100M/beta_8000.jpg){width=40%} ![](/Users/Kanchanah/Documents/Project/Part 1/FSA_Loop/Intersect/100_Main_8000N,100M/tau_8000.jpg){width=40%} ![](/Users/Kanchanah/Documents/Project/Part 1/FSA_Loop/Intersect/100_Main_8000N,100M/cost_8000.jpg){width=40%} ![](/Users/Kanchanah/Documents/Project/Part 1/FSA_Loop/Intersect/100_Main_8000N,100M/hist_8000.jpg){width=40%}
+
+
+###Conclusion
+
+This project applied the FSA algorithm presented in \cite{featureselection} to a regression problem. The algorithm works by removing irrelevant variables according to a annealing schedule. The algorithm worked well in the problem, detecting all variables correctly for 100 features with 8000 observations and for 300 features with 15000 observations. The next aim of this analysis will be to apply this method to a high-dimensional data and observe the results on a real data.
+
+###References
+
+Adrian Barbu, Yiyuan She, Liangjing Ding and Gary Gramajo. 
+Feature Selection with Annealing for Computer Vision and Big Data Learning, Mar 2016.
+

@@ -1,0 +1,16 @@
+
+
+I started this blog as a medium to discuss some statistical, machine learning and deep learning techniques I have learnt and been learning in the past two years as a Graduate Student. My journey so far has been an amazing one and I am hoping to learn more in the years to come.
+
+If you are interested in the following areas, please read on and also, please do contact me for more information using the **Contact** tab above.
+
+<ul>
+<li>Predictive Models</li>
+<li>Feature Selection</li>
+<li>Machine Learning</li>
+<li>High Dimensional Analysis</li>
+</ul>
+
+
+**I just started off blogging and writing up on what I have learnt so it wll probably take me a few weeks to update everything. Hope to get things up as soon as possible**
+

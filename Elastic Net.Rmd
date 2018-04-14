@@ -1,0 +1,76 @@
+---
+title: "Elastic Net"
+output: html_document
+---
+
+Our professor introduced a new method or should I say it more formally, a new regularization and variable selection method know as Elastic Net. For those people wondering what regularization is, it was a bit of a head scratcher for me at the beginning too. Let me give you guys a brief idea.
+
+**Regularization** : Regularization is the process of introducing additional information to solve problems presented by overfitting.
+
+This method seems to outperfrom lasso while it still enjoys the similar form of sparsity we see in lasso.
+
+##Introduction
+
+To evaluate the qualiy of any model, two aspects are pretty important.
+
+1) Accuracy of predicting new data - I must say as Statisticians, this is one area that is immensely powerful to us and doing it well is really important
+
+2) Interpretation of the model - This is yet another important area because a simpler model is definitely easier to interpret.
+
+##Penalization techniques
+
+Penalization techniques have been known to improve methods related to OLS. Some examples of penalization techniques are lasso and ridge regression. Looking at the advantages and the disadvantages is a good way to revise the topic.
+
+**Lasso**
+
+Advantage : Due to the nature of the $L_1$ penalty, the lasso does continuous shrinkage and automatic variable selection. As mentioned earlier, in terms of interpretabililty, using lasso will be beneficial.
+
+Disadvantages : If we have a group of variables among which we have high correlations, lasso tends to select one variable from that group and it does not bother which one is chosen.
+
+**Ridge**
+
+Advantages: Ridge regression achieves better prediction performance through a bias-variance trade off. To those people wondering what in the world bias-variance trade off is, I will give a small explanation at the end of this page.
+
+Disadvantages: Ridge regression cannot produce a parsimonious model because it keeps all the predictors in the model.
+
+##Elastic Net
+
+Based on the explanation given above, we can see that both lasso and ridge regression have their advantages and disadvantages. However, it was a thought by Hastie and Zou that it would be interesting to find a method that works as well as lasso and fix other issues seen by lasso. And out of this thought came about Elastic Net.
+
+###Properties of Elastic Net
+
+1) The elastic net simultaneously does variable selection and continuous shrinkage
+2) It is able to select a group of variables
+
+###Properties of Naive Elastic Net
+
+Even above starting to fully understand about elastic net, I did not know there was a naive elastic net. Let me give a brief explanation.
+
+Let **y**=$(y_1,y_2,....y_n)^t$ be the response and **x**=$[x_1,x_2,...x_p]$ be the explanatory variables. Here we note that $x_1 = (x_{1j},x_{2j}.....,x_{3j})^t$, j=1,2....p are predictors.
+
+Using the above, we can define the naive elastic net as a combination of the L1 and L2 penalty. 
+
+$\hat\beta(Naive Enet) = arg min_\beta ||y-x\beta||^2 + \lambda_1|\beta_1| + \lambda_2||\beta||^2$
+
+Limitations : The two-stage procedure for naive elastic net incurs double amount of shrinkage and introduces extra bias without reducing variance
+
+###Properties of Elastic Net
+
+$\hat\beta$(elastic net) = $(1+\lambda_2)\hat\beta$(naive elastic net)
+
+##Comparison of the Elastic Net and Naive Elastic Net
+
+I tried different $\lambda_2$ values to do a comparison between the elastic net and naive elastic net. My results indicate that for small values of $\lambda_2$, the prediction error for corrected elastic net was smaller than the prediction error for naïve elastic net.
+
+```{r echo = FALSE}
+naive = c(16.95229, 16.94592, 16.94389, 16.94324)
+elastic = c(14.39191, 16.49244, 16.67565, 16.8162)
+lambda2 <- c(0.0001, 0.00001, 0.000001, 0.0000001)
+a <- rbind(lambda2,naive,elastic)
+```
+
+```{r echo = FALSE}
+library(knitr)
+kable(round(a))
+```
+
