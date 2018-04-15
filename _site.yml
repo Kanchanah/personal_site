@@ -9,7 +9,8 @@ navbar:
       href: blog.html
     - text: "Projects"
       href: Projects.html  
-
+    - text: "Contact"
+      href: Contact.html  
 output:
   html_document:
     theme: flatly
