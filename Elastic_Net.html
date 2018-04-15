@@ -207,30 +207,30 @@ $(document).ready(function () {
 </div>
 
 
-<p>Our professor introduced a new method or should I say it more formally, a new regularization and variable selection method know as Elastic Net. For those people wondering what regularization is, it was a bit of a head scratcher for me at the beginning too. Let me give you guys a brief idea.</p>
+<p>Our professor a new regularization and variable selection method know as Elastic Net. For those people wondering what regularization is, it was a bit of a head scratcher for me at the beginning too. Let me give you guys a brief idea.</p>
 <p><strong>Regularization</strong> : Regularization is the process of introducing additional information to solve problems presented by overfitting.</p>
-<p>This method seems to outperfrom lasso while it still enjoys the similar form of sparsity we see in lasso.</p>
+<p>Overfitting is a problem alot of analysis faces but with the help of regularization methods, we can try our best to avoid this.</p>
 <div id="introduction" class="section level2">
 <h2>Introduction</h2>
 <p>To evaluate the qualiy of any model, two aspects are pretty important.</p>
 <ol style="list-style-type: decimal">
-<li><p>Accuracy of predicting new data - I must say as Statisticians, this is one area that is immensely powerful to us and doing it well is really important</p></li>
-<li><p>Interpretation of the model - This is yet another important area because a simpler model is definitely easier to interpret.</p></li>
+<li><p><strong>Accuracy of predicting new data</strong> - I must say as Statisticians, this is one area that is immensely powerful to us and doing it well is really important.</p></li>
+<li><p><strong>Interpretation of the model</strong> - This is yet another important area because a simpler model is definitely easier to interpret.</p></li>
 </ol>
 </div>
 <div id="penalization-techniques" class="section level2">
 <h2>Penalization techniques</h2>
-<p>Penalization techniques have been known to improve methods related to OLS. Some examples of penalization techniques are lasso and ridge regression. Looking at the advantages and the disadvantages is a good way to revise the topic.</p>
+<p>Penalization techniques have been known to improve methods related to OLS. Some examples of penalization techniques are lasso and ridge regression. Looking at the advantages and the disadvantages of these methods is a good way to revise the topic.</p>
 <p><strong>Lasso</strong></p>
 <p>Advantage : Due to the nature of the <span class="math inline">\(L_1\)</span> penalty, the lasso does continuous shrinkage and automatic variable selection. As mentioned earlier, in terms of interpretabililty, using lasso will be beneficial.</p>
 <p>Disadvantages : If we have a group of variables among which we have high correlations, lasso tends to select one variable from that group and it does not bother which one is chosen.</p>
 <p><strong>Ridge</strong></p>
-<p>Advantages: Ridge regression achieves better prediction performance through a bias-variance trade off. To those people wondering what in the world bias-variance trade off is, I will give a small explanation at the end of this page.</p>
+<p>Advantages: Ridge regression achieves better prediction performance through a bias-variance trade off.</p>
 <p>Disadvantages: Ridge regression cannot produce a parsimonious model because it keeps all the predictors in the model.</p>
 </div>
 <div id="elastic-net" class="section level2">
 <h2>Elastic Net</h2>
-<p>Based on the explanation given above, we can see that both lasso and ridge regression have their advantages and disadvantages. However, it was a thought by Hastie and Zou that it would be interesting to find a method that works as well as lasso and fix other issues seen by lasso. And out of this thought came about Elastic Net.</p>
+<p>Based on the explanation given above, we can see that both lasso and ridge regression have their advantages and disadvantages. However, it was a thought by <strong>Hastie and Zou</strong> that it would be interesting to find a method that works as well as lasso and fix other issues seen by lasso. And that is how Elastic Net came about.</p>
 <div id="properties-of-elastic-net" class="section level3">
 <h3>Properties of Elastic Net</h3>
 <ol style="list-style-type: decimal">
@@ -240,11 +240,11 @@ $(document).ready(function () {
 </div>
 <div id="properties-of-naive-elastic-net" class="section level3">
 <h3>Properties of Naive Elastic Net</h3>
-<p>Even above starting to fully understand about elastic net, I did not know there was a naive elastic net. Let me give a brief explanation.</p>
-<p>Let <strong>y</strong>=<span class="math inline">\((y_1,y_2,....y_n)^t\)</span> be the response and <strong>x</strong>=<span class="math inline">\([x_1,x_2,...x_p]\)</span> be the explanatory variables. Here we note that <span class="math inline">\(x_1 = (x_{1j},x_{2j}.....,x_{3j})^t\)</span>, j=1,2….p are predictors.</p>
+<p>Even above starting to fully understand about elastic net, I did not know there was a naive elastic net. I think it is important to understand naive elastic net before understanding elastic net. Let me give a brief explanation.</p>
+<p>Let <strong>y</strong>=<span class="math inline">\((y_1,y_2,....y_n)^t\)</span> be the response and <strong>x</strong>=<span class="math inline">\([x_1,x_2,...x_p]\)</span> be the explanatory variables. Here we note that <span class="math inline">\(x_j = (x_{1j},x_{2j}.....,x_{nj})^t\)</span>, j=1,2….p are predictors.</p>
 <p>Using the above, we can define the naive elastic net as a combination of the L1 and L2 penalty.</p>
 <p><span class="math inline">\(\hat\beta(Naive Enet) = arg min_\beta ||y-x\beta||^2 + \lambda_1|\beta_1| + \lambda_2||\beta||^2\)</span></p>
-<p>Limitations : The two-stage procedure for naive elastic net incurs double amount of shrinkage and introduces extra bias without reducing variance</p>
+<p>Limitations of naive elastic net: The naive elastic net is a two-stage estimation procedure. The two-stage procedure for naive elastic net incurs double amount of shrinkage and introduces extra bias without reducing variance</p>
 </div>
 <div id="properties-of-elastic-net-1" class="section level3">
 <h3>Properties of Elastic Net</h3>
@@ -253,31 +253,75 @@ $(document).ready(function () {
 </div>
 <div id="comparison-of-the-elastic-net-and-naive-elastic-net" class="section level2">
 <h2>Comparison of the Elastic Net and Naive Elastic Net</h2>
-<p>I tried different <span class="math inline">\(\lambda_2\)</span> values to do a comparison between the elastic net and naive elastic net. My results indicate that for small values of <span class="math inline">\(\lambda_2\)</span>, the prediction error for corrected elastic net was smaller than the prediction error for naïve elastic net.</p>
+<p>I tried different <span class="math inline">\(\lambda_2\)</span> values to do a comparison between the elastic net and naive elastic net performance on a simulated data. My results indicate that for small values of <span class="math inline">\(\lambda_2\)</span>, the prediction error for corrected elastic net was smaller than the prediction error for naïve elastic net.</p>
 <table>
-<tbody>
-<tr class="odd">
-<td align="left">lambda2</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
+<tr>
+<th>
+</th>
+<th>
+1
+</th>
+<th>
+2
+</th>
+<th>
+3
+</th>
+<th>
+4
+</th>
 </tr>
-<tr class="even">
-<td align="left">naive</td>
-<td align="right">17</td>
-<td align="right">17</td>
-<td align="right">17</td>
-<td align="right">17</td>
+<tr>
+<td align="right">
+<span class="math inline">\(\lambda_2\)</span>
+</td>
+<td align="right">
+0.0001
+</td>
+<td align="right">
+0.00001
+</td>
+<td align="right">
+0.000001
+</td>
+<td align="right">
+0.0000001
+</td>
 </tr>
-<tr class="odd">
-<td align="left">elastic</td>
-<td align="right">14</td>
-<td align="right">16</td>
-<td align="right">17</td>
-<td align="right">17</td>
+<tr>
+<td align="right">
+naive
+</td>
+<td align="right">
+16.95
+</td>
+<td align="right">
+16.95
+</td>
+<td align="right">
+16.94
+</td>
+<td align="right">
+16.94
+</td>
 </tr>
-</tbody>
+<tr>
+<td align="right">
+elastic
+</td>
+<td align="right">
+14.39
+</td>
+<td align="right">
+16.49
+</td>
+<td align="right">
+16.68
+</td>
+<td align="right">
+16.82
+</td>
+</tr>
 </table>
 </div>
 

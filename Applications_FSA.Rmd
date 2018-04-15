@@ -4,9 +4,9 @@ output:
   html_document: default
 ---
 
-Feature Selection is a well known preprocessing step for high dimensional data. This project focuses on a novel method, Feature Selection with Annealing, for selecting features. One of the biggest advantage of this method over others are that this method takes a shorter time for convergence. This happens because while the model parameters are updated, the variables are also removed at each iteration while reducing the problem size.
+Feature Selection is a well-known preprocessing step for high dimensional data. This project focuses on a novel method, Feature Selection with Annealing, for selecting features. One of the biggest advantage of this method over others are that this method takes a shorter time for convergence. This happens because while the model parameters are updated, the variables are also removed at each iteration while reducing the problem size.
 
-I was interested in applying this method to a regression problem and I decided to proceed on with a simulation example to access the effectiveness of this method. The entire problem was performed using MATLAB. 
+I was interested in applying this method to a regression problem. I decided to proceed on with a simulation example to access the effectiveness of this method. The entire problem was performed using MATLAB. 
 
 ###The Feature Selection with Annealing Algorithm
 
@@ -82,7 +82,7 @@ The number of observations are further increased. The parameters set for the nex
 
 ###Conclusion
 
-This project applied the FSA algorithm presented in \cite{featureselection} to a regression problem. The algorithm works by removing irrelevant variables according to a annealing schedule. The algorithm worked well in the problem, detecting all variables correctly for 100 features with 8000 observations and for 300 features with 15000 observations. The next aim of this analysis will be to apply this method to a high-dimensional data and observe the results on a real data.
+This project applied the FSA algorithm to a regression problem. The algorithm works by removing irrelevant variables according to a annealing schedule. The algorithm worked well in the problem, detecting all variables correctly for 100 features with 8000 observations and for 300 features with 15000 observations. 
 
 ###References
 

@@ -14,7 +14,7 @@ entries will follow this format:
 <h3><a href="Elastic_Net.html">Elastic Net</a></h3>
 <div class="summary">
 <span><i class="fa fa-calendar"></i> _2018-02-02_</span>
-<p> The way our professor taught about **Elastic Net** really opened up my eyes to the wonders of regularization methods. Although we have lasso and ridge, elastic net is able to do much more. Follow this post if you want to learn more. </p>
+<p> Regularization methods have a lot to offer Statisticians. One of the regularization methods that I learnt for high dimensional analysis recently is **Elastic Net**. Although we have lasso and ridge, elastic net is able to do much more. Follow this post if you want to learn more. </p>
 <a class="btn btn-outline-primary btn-sm" href="Elastic_Net.html">Full Post</a>
 </div>
 </article>

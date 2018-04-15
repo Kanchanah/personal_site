@@ -56,7 +56,7 @@ The Receiver Operating Characteristic (ROC) was utilized as a tool to access the
 Results from regression for the 3 methods indicated that Group Lasso performed the best, with the lowest test error.
 
 ![](/Users/Kanchanah/Documents/STAT 5167/Project/test.jpg)
-Results from group lasso indicated that factors such as **REVOKED** and **MVR PTS** are significant. Hence, these two factors results in positive claim amount. Hence, the interpretations of the cofficients for these two predictors are given below.
+Results from group lasso indicated that factors such as **REVOKED** and **MVR PTS** are significant. Hence, these two factors results in positive claim amount. Hence, the interpretations of the coefficients for these two predictors are given below.
 - REVOKED: As the number of revoked licenses increases, the claim amount increases.
 - MVR PTS: As the number of motor vehicle record points increases, the claim amount increases.
 

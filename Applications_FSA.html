@@ -206,8 +206,8 @@ $(document).ready(function () {
 </div>
 
 
-<p>Feature Selection is a well known preprocessing step for high dimensional data. This project focuses on a novel method, Feature Selection with Annealing, for selecting features. One of the biggest advantage of this method over others are that this method takes a shorter time for convergence. This happens because while the model parameters are updated, the variables are also removed at each iteration while reducing the problem size.</p>
-<p>I was interested in applying this method to a regression problem and I decided to proceed on with a simulation example to access the effectiveness of this method. The entire problem was performed using MATLAB.</p>
+<p>Feature Selection is a well-known preprocessing step for high dimensional data. This project focuses on a novel method, Feature Selection with Annealing, for selecting features. One of the biggest advantage of this method over others are that this method takes a shorter time for convergence. This happens because while the model parameters are updated, the variables are also removed at each iteration while reducing the problem size.</p>
+<p>I was interested in applying this method to a regression problem. I decided to proceed on with a simulation example to access the effectiveness of this method. The entire problem was performed using MATLAB.</p>
 <div id="the-feature-selection-with-annealing-algorithm" class="section level3">
 <h3>The Feature Selection with Annealing Algorithm</h3>
 <p>Let L(<span class="math inline">\(\beta\)</span>,<span class="math inline">\(\tau\)</span>) be the loss function and (<span class="math inline">\(x_i,y_i\)</span>),<span class="math inline">\(i=1,N\)</span> be the training examples with <span class="math inline">\(x_i\in\mathbb{R}^{M}\)</span> The formulation of the selected problem will be constrained optimization.</p>
@@ -240,7 +240,7 @@ $(document).ready(function () {
 </div>
 <div id="conclusion" class="section level3">
 <h3>Conclusion</h3>
-<p>This project applied the FSA algorithm presented in  to a regression problem. The algorithm works by removing irrelevant variables according to a annealing schedule. The algorithm worked well in the problem, detecting all variables correctly for 100 features with 8000 observations and for 300 features with 15000 observations. The next aim of this analysis will be to apply this method to a high-dimensional data and observe the results on a real data.</p>
+<p>This project applied the FSA algorithm to a regression problem. The algorithm works by removing irrelevant variables according to a annealing schedule. The algorithm worked well in the problem, detecting all variables correctly for 100 features with 8000 observations and for 300 features with 15000 observations.</p>
 </div>
 <div id="references" class="section level3">
 <h3>References</h3>

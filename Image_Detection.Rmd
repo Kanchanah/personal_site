@@ -3,11 +3,11 @@ title: "Image Detection"
 output: html_document
 ---
 
-Image detection has gained alot of popularity over the past few years. In this project, we decided to look at some machine learning techniques to go about it.
+Image detection has gained alot of popularity over the years. In this project, we decided to access the difference in performance between some dimensionality reduction and classification methods. 
 
 ###Aim of Analysis
 
-Given a set of images, the goal of the project was to detect and recognize people from their facial images. Although the project requirement was to work on Nearest Neighbors, I thought it will be interesting to draw a comparison between 3 classification methods. For this project, I decided on Nearest Neighbors, k-Nearest Neighbors (k-NN) and Support Vector Machines (SVM) and the aim was to find out which classification method gives higher accuracy. 
+Given a set of images, the goal of the project was to detect and recognize people from their facial images. I thought it will be interesting to draw a comparison between 3 classification methods. For this project, I decided on Nearest Neighbors, k-Nearest Neighbors (k-NN) and Support Vector Machines (SVM) and the aim was to find out which classification method gives higher accuracy. 
 
 In addition to accuracy, I also wanted to look at the type of pictures detected correctly by these methods. 
 
@@ -19,11 +19,13 @@ Step2 : Classification was performed using SVM, Nearest Neighbors and k-Nearest 
 
 ###Results
  
-Results showed that PCA performed better than Simple Projection for both SVM and Nearest Neighbors. For the k-NN case, k=1 was chosen and this is similar to a Nearest Neighbors. Hence, comparison of classification methods SVM and Nearest Neighbors was performed with PCA as the dimensionality reduction method. SVM produced higher accuracy by correctly identifying more images that Nearest Neighbor. The images that both Nearesr Neighbors and SVM could not identify were images of people with beards! 
+Results showed that PCA performed better than Simple Projection for both SVM and Nearest Neighbors. For the k-NN case, k=1 was chosen and this is similar to a Nearest Neighbors. Hence, comparison of classification SVM and Nearest Neighbors was performed with PCA as the dimensionality reduction method. 
+
+SVM produced higher accuracy by correctly identifying more images that Nearest Neighbors. The images that both Nearest Neighbors and SVM could not identify were images of people with beards! 
 
 My next task will probably be to look into techniques that takes this into consideration.
 
-**Unfortunately, I will not be able to release materials or go into the details related to this project. However, please don't hesitate to ask me if you have any questions**
+<b>**Unfortunately, I will not be able to release materials or go into the details related to this project. However, please don't hesitate to ask me if you have any questions</b>
 
 
 
