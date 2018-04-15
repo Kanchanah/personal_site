@@ -9,6 +9,7 @@ If you are interested in the following areas, please read on and also, please do
 <li>Feature Selection</li>
 <li>Machine Learning</li>
 <li>High Dimensional Analysis</li>
+<li>Categorical Data Analysis</li>
 </ul>
 
 
