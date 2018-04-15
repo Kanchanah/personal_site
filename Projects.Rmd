@@ -31,7 +31,7 @@ entries will follow this format:
 </article>
 
 <article>
-<h3><a href="Claim_Analysisn.html">Claim Analysis</a></h3>
+<h3><a href="Claim_Analysis.html">Claim Analysis</a></h3>
 <div class="summary">
 <span><i class="fa fa-calendar"></i> _2017-11-02_</span>
 <p> Accurate modeling of the claim amount distribution is one of the essential steps in calculating policy rates. Motivated by the zero-inflation problem in the claim amount distribution of the motor insurance data set, this project focused on applying the use of s two part model</p>
